@@ -1,0 +1,38 @@
+@startuml pembayaran
+actor Pengguna
+actor Admin
+actor "Bank/PaymentGateway" as BankPG
+
+usecase "Pilih Produk" as UC1
+usecase "Tambah ke Keranjang" as UC2
+usecase "Lihat Keranjang" as UC3
+usecase "Proses Pembayaran" as UC4
+usecase "Konfirmasi Pembayaran" as UC5
+usecase "Verifikasi Pembayaran" as UC6
+usecase "Pembayaran Berhasil" as UC7
+usecase "Pembayaran Gagal" as UC8
+usecase "Kelola Produk" as UC9
+usecase "Tambah Produk" as UC10
+usecase "Edit Produk" as UC11
+usecase "Hapus Produk" as UC12
+usecase "Lihat Riwayat Pesanan" as UC13
+
+Pengguna --> UC1
+Pengguna --> UC2
+Pengguna --> UC3
+Pengguna --> UC4
+Pengguna --> UC13
+UC4 --> UC5
+UC5 --> UC6
+UC6 --> BankPG : Verifikasi Pembayaran
+BankPG --> UC7 : Pembayaran Berhasil
+BankPG --> UC8 : Pembayaran Gagal
+UC7 --> Pengguna : Tampilkan Notifikasi Pembayaran Berhasil
+UC8 --> Pengguna : Tampilkan Notifikasi Pembayaran Gagal
+
+Admin --> UC9
+UC9 --> UC10 : <<extend>>
+UC9 --> UC11 : <<extend>>
+UC9 --> UC12 : <<extend>>
+
+@enduml

@@ -1,0 +1,35 @@
+@startuml pembayaran
+title Flowchart untuk Proses Pembayaran
+
+start
+
+:Buka Aplikasi/Website;
+
+:Pilih Barang/Jasa;
+
+:Masukkan ke Keranjang;
+
+:Klik "Lanjutkan ke Pembayaran";
+
+:Masukkan Detail Pembayaran (Metode, Alamat, dll);
+
+:Cek Ketersediaan Barang/Jasa;
+
+if (Barang/Jasa Tersedia?) then (Ya)
+    :Proses Pembayaran;
+    if (Pembayaran Berhasil?) then (Ya)
+        :Tampilkan "Pembayaran Berhasil";
+        :Kirim Notifikasi dan Detail Pesanan;
+        :Proses Pengiriman Barang/Jasa;
+    else (Tidak)
+        :Tampilkan "Pembayaran Gagal";
+        :Minta Pengguna Coba Lagi;
+    endif
+else (Tidak)
+    :Tampilkan "Barang/Jasa Tidak Tersedia";
+    :Kembali ke Keranjang;
+endif
+
+stop
+
+@enduml
