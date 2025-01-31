@@ -1,0 +1,68 @@
+@startuml
+
+title Flowchart Sistem Manajemen Data Pendidikan
+
+start
+:Buka Aplikasi;
+:Login;
+:Masukkan Email dan Password;
+:Cek Kredensial;
+
+if (Kredensial Valid?) then (Ya)
+    if (Peran = Admin?) then (Ya)
+        :Login sebagai Admin;
+        :Akses Manajemen Pengguna;
+        :Pilih Aksi;
+        if (Aksi = Tambah Pengguna) then (Tambah Pengguna)
+            :Masukkan Detail Pengguna;
+            :Simpan Pengguna;
+        elseif (Aksi = Edit Pengguna) then (Edit Pengguna)
+            :Pilih Pengguna yang Akan Diedit;
+            :Perbarui Detail Pengguna;
+            :Simpan Perubahan;
+        elseif (Aksi = Hapus Pengguna) then (Hapus Pengguna)
+            :Pilih Pengguna yang Akan Dihapus;
+            :Konfirmasi Penghapusan;
+        endif
+        :Akses Manajemen Data Pendidikan;
+        :Pilih Aksi;
+        if (Aksi = Tambah Data) then (Tambah Data)
+            :Masukkan Detail Data;
+            :Simpan Data;
+        elseif (Aksi = Edit Data) then (Edit Data)
+            :Pilih Data yang Akan Diedit;
+            :Perbarui Detail Data;
+            :Simpan Perubahan;
+        elseif (Aksi = Hapus Data) then (Hapus Data)
+            :Pilih Data yang Akan Dihapus;
+            :Konfirmasi Penghapusan;
+        endif
+        :Logout;
+    else
+        if (Peran = Dosen?) then (Ya)
+            :Login sebagai Dosen;
+            :Akses Data Mahasiswa;
+            :Pilih Aksi;
+            if (Aksi = Tambah Nilai) then (Tambah Nilai)
+                :Masukkan Detail Nilai;
+                :Simpan Nilai;
+            elseif (Aksi = Edit Nilai) then (Edit Nilai)
+                :Pilih Mahasiswa;
+                :Perbarui Detail Nilai;
+                :Simpan Perubahan;
+            endif
+            :Logout;
+        else
+            :Login sebagai Mahasiswa;
+            :Akses Data Pribadi;
+            :Lihat Jadwal, Nilai, dan Informasi;
+            :Logout;
+        endif
+    endif
+else
+    :Tampilkan "Kredensial Tidak Valid";
+    :Kembali ke Halaman Login;
+endif
+
+stop
+@enduml
