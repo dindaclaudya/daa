@@ -1,0 +1,42 @@
+@startuml
+actor Administrator as Admin
+actor Guru as Teacher
+actor Siswa as Student
+actor Pengembang_Teknologi as TechDev
+actor Pemerintah as Government
+
+' Use Cases
+usecase "Kelola Profil Institusi" as UC1
+usecase "Kelola Program Inovasi" as UC2
+usecase "Kelola Evaluasi Program" as UC3
+usecase "Kelola Pelatihan Teknologi" as UC4
+usecase "Mengelola Program Inovasi" as UC5
+usecase "Memberikan Pelatihan Teknologi" as UC6
+usecase "Menggunakan Teknologi Pembelajaran" as UC7
+usecase "Mengikuti Pelatihan Teknologi" as UC8
+usecase "Mengikuti Pembelajaran dengan Teknologi" as UC9
+usecase "Mengikuti Program Inovasi" as UC10
+usecase "Menerapkan Inovasi Teknologi" as UC11
+usecase "Memelihara Sistem Pembelajaran" as UC12
+usecase "Menetapkan Kebijakan Inovasi Pendidikan" as UC13
+
+' Relasi Aktor dan Use Case
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+
+Teacher --> UC5
+Teacher --> UC6
+Teacher --> UC7
+
+Student --> UC8
+Student --> UC9
+Student --> UC10
+
+TechDev --> UC11
+TechDev --> UC12
+
+Government --> UC13
+
+@enduml
