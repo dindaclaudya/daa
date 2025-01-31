@@ -5,3 +5,6 @@ redis/
 mysql/
 performance_schema/
 data/
+pert3/sampleapp/db/data/*
+uts/sampleapp/db/data/*
+
